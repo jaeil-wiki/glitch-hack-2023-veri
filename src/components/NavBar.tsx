@@ -12,23 +12,15 @@ import {
     MenuItem,
     MenuList,
     Stack,
-    Text,
+    Text, useBreakpointValue,
     useColorMode,
     useColorModeValue,
     useDisclosure,
 } from '@chakra-ui/react';
 import {CloseIcon, HamburgerIcon, MoonIcon, SunIcon} from '@chakra-ui/icons';
+import {ConnectKitButton} from "connectkit";
 
-const Links = [
-    {
-        title: 'Crowdings',
-        href: 'crowdings'
-    },
-    {
-        title: 'Dashboard',
-        href: 'dashboard'
-    }
-];
+const Links = [];
 
 const NavLink = (link: { title: string, href: string }) => {
         const linkBg = useColorModeValue('gray.200', 'gray.700');
@@ -49,7 +41,7 @@ export default function NavBar() {
     const {isOpen, onOpen, onClose} = useDisclosure();
     const {colorMode, toggleColorMode} = useColorMode();
 
-    const navBoxBg = useColorModeValue('gray.100', 'gray.900');
+    const navBoxBg = useColorModeValue('blue.900', 'blue.900');
     return (
         <>
             <Box bg={navBoxBg} px={4}>
@@ -63,25 +55,20 @@ export default function NavBar() {
                     />
                     <HStack spacing={8} alignItems={'center'}>
                         <Link href={'/'} style={{textDecoration: 'none'}}>
-                            <Box fontWeight={'bold'}>Expose!</Box>
+                            <Box fontWeight={'bold'} fontStyle={'italic'} color={"white"}>Verificio</Box>
                         </Link>
                         <HStack
                             as={'nav'}
                             spacing={4}
                             display={{base: 'none', md: 'flex'}}>
-                            {Links.map((link, i) => (
-                                <NavLink key={i} title={link.title} href={link.href}></NavLink>
-                            ))}
+                            {/*{Links.map((link, i) => (*/}
+                            {/*    <NavLink key={i} title={link.title} href={link.href}></NavLink>*/}
+                            {/*))}*/}
                         </HStack>
                     </HStack>
                     <Flex alignItems={'center'}>
-                        <Button
-                            variant={'solid'}
-                            colorScheme={'teal'}
-                            size={'sm'}
-                            mr={4}>
-                            Connect
-                        </Button>
+                        {useBreakpointValue({base: false, md: true}) && <ConnectKitButton label={"Connect"}/>}
+                        <Box ml={2}></Box>
                         <Menu>
                             <MenuButton
                                 as={Button}
@@ -100,18 +87,20 @@ export default function NavBar() {
                                 <MenuItem onClick={toggleColorMode}>
                                     {colorMode === 'light' ? <MoonIcon mr={2}/> : <SunIcon mr={2}/>}
                                     <Text as={'span'}>Change Theme</Text></MenuItem>
-                                <MenuItem><CloseIcon mr={2}/>Disconnect</MenuItem>
                             </MenuList>
                         </Menu>
                     </Flex>
                 </Flex>
 
                 {isOpen ? (
-                    <Box pb={4} display={{md: 'none'}}>
+                    <Box pb={4} display={{md: 'none'}} w={'100%'} justifyContent={'center'}>
                         <Stack as={'nav'} spacing={4}>
-                            {Links.map((link, i) => (
-                                <NavLink key={i} title={link.title} href={link.href}></NavLink>
-                            ))}
+                            {/*{Links.map((link, i) => (*/}
+                            {/*    <NavLink key={i} title={link.title} href={link.href}></NavLink>*/}
+                            {/*))}*/}
+                            <Box m={'auto'}>
+                                <ConnectKitButton label={"Connect"}/>
+                            </Box>
                         </Stack>
                     </Box>
                 ) : null}
