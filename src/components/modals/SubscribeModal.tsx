@@ -155,7 +155,7 @@ function SubscribeModal(props: any) {
                     </Row>
 
                     <SizedBox h={16}/>
-                    <BottomButton onClick={props.onBackClick}>
+                    <BottomButton onClick={() => { window.location.href = '/rooms/1'}}>
                         Start Weekly Subscription
                     </BottomButton>
                 </BottomBorder>

@@ -39,8 +39,8 @@ export default function RoomCard(props: RoomCardProps) {
     return (
         <Center py={1.4}>
             <Link
-                // onClick={props.onClick}
-                href={`/rooms/${props.href ?? '#'}`}
+                onClick={props.onClick}
+                // href={`/rooms/${props.href ?? '#'}`}
                 style={{ textDecoration: "none" }}>
                 <Box
                     maxW={"451px"}

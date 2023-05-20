@@ -102,7 +102,7 @@ function Home() {
                 </Stack>
             </Container>
             <Container
-                maxW={"10xl"}
+                maxW={"1440px"}
                 bg={useColorModeValue(COLORS.white, COLORS.white)}
                 pb={1}>
                 <Box overflowX={"auto"} pb={1}>
