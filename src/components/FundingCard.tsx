@@ -1,5 +1,5 @@
 import {Avatar, Box, Center, Heading, Progress, Stack, Text, useColorModeValue,} from '@chakra-ui/react';
-import {BIFROST, ETHREUM, POLYGON} from "../configs";
+import {BIFROST, ETHEREUM, KLAYTN} from "../configs";
 import React from "react";
 
 type RoomCardProps = {
@@ -19,8 +19,8 @@ const ClosedBadge = () => (
 );
 export default function RoomCard(props: RoomCardProps) {
     const NetworkLabelColor: any = {
-        [ETHREUM]: 'orange.400',
-        [POLYGON]: 'purple.500',
+        [ETHEREUM]: 'orange.400',
+        [KLAYTN]: 'blue.500',
         [BIFROST]: 'blue.500'
     }
     return (

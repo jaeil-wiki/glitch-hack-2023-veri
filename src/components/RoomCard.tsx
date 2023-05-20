@@ -1,5 +1,5 @@
-import {Avatar, Box, Center, Heading, Link, Stack, Text, useColorModeValue,} from '@chakra-ui/react';
-import {BIFROST, ETHREUM, POLYGON} from "../configs";
+import {Avatar, Badge, Box, Center, Link, SimpleGrid, Spacer, Stack, Text, useColorModeValue,} from '@chakra-ui/react';
+import React from "react";
 
 type RoomCardProps = {
     network: string,
@@ -18,39 +18,35 @@ const ClosedBadge = () => (
     </Box>
 );
 export default function RoomCard(props: RoomCardProps) {
-    const NetworkLabelColor: any = {
-        [ETHREUM]: 'orange.400',
-        [POLYGON]: 'purple.500',
-        [BIFROST]: 'blue.500'
-    }
     return (
-        <Center py={4}>
-            <Link href={`/rooms/${props.href ?? '#'}`}>
+        <Center py={1.4}>
+            <Link href={`/rooms/${props.href ?? '#'}`} style={{textDecoration: 'none'}}>
                 <Box
                     maxW={'600px'}
                     w={'full'}
                     bg={useColorModeValue('white', 'gray.900')}
                     boxShadow={'2xl'}
                     rounded={'md'}
-                    p={6}
-                    overflow={'hidden'}>
-                    {/* !Card Thumbnail*/}
-                    {/*<Box*/}
-                    {/*    h={'210px'}*/}
-                    {/*    bg={'gray.100'}*/}
-                    {/*    mt={-6}*/}
-                    {/*    mx={-6}*/}
-                    {/*    mb={6}*/}
-                    {/*    pos={'relative'}>*/}
-                    {/*    <Image*/}
-                    {/*        src={*/}
-                    {/*            'https://images.unsplash.com/photo-1515378791036-0648a3ef77b2?ixid=MXwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHw%3D&ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80'*/}
-                    {/*        }*/}
-                    {/*    />*/}
-                    {/*</Box>*/}
+                    px={6} pt={4} pb={'80px'}
+                    overflow={'hidden'}
+                >
                     <Stack>
+                        <Stack mb={2} direction={'row'} spacing={4} align={'center'}>
+                            <Avatar
+                                src={`https://avatars0.githubusercontent.com/u/${Math.ceil(Math.random() * 10000)}?v=4`}/>
+                            <Stack direction={'column'} spacing={0} fontSize={'sm'}>
+                                <Text fontWeight={600}>{props.author}</Text>
+                                <Text color={'gray.500'}>{props.writtenAt}</Text>
+                            </Stack>
+                            <Spacer></Spacer>
+                            <Stack direction={'column'} spacing={1} fontSize={'sm'}>
+                                {/* eslint-disable-next-line react/jsx-no-undef */}
+                                <Badge color={'red'} border={'1px solid red'} px={2} rounded={'20px'}>BOUNTY: 111
+                                    BFC</Badge>
+                                <Box py={1}> </Box>
+                            </Stack>
+                        </Stack>
                         <Text
-                            color={NetworkLabelColor[props.network]}
                             textTransform={'uppercase'}
                             fontWeight={800}
                             fontSize={'sm'}
@@ -58,32 +54,28 @@ export default function RoomCard(props: RoomCardProps) {
                             {props.network}
                             {props.closed && <ClosedBadge/>}
                         </Text>
-                        <Heading
-                            color={useColorModeValue('gray.700', 'white')}
-                            fontSize={'2xl'}
-                            fontFamily={'body'}>
-                            {props.title}
-                        </Heading>
-                        <Text color={'gray.500'}>
+                        {/*<Heading*/}
+                        {/*    color={useColorModeValue('gray.700', 'white')}*/}
+                        {/*    fontSize={'2xl'}*/}
+                        {/*    fontFamily={'body'}>*/}
+                        {/*    {props.title}*/}
+                        {/*</Heading>*/}
+                        <Text fontSize={'md'} color={'gray.700'}>
                             Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam
                             nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam
                             erat, sed diam voluptua. At vero eos et accusam et justo duo dolores
                             et ea rebum.
                         </Text>
                     </Stack>
-                    <Stack mt={6} direction={'row'} spacing={4} align={'center'}>
-                        <Avatar
-                            src={`https://avatars0.githubusercontent.com/u/${Math.ceil(Math.random() * 10000)}?v=4`}
-                        />
-                        <Stack direction={'column'} spacing={0} fontSize={'sm'}>
-                            <Text fontWeight={600}>{props.author}</Text>
+                </Box>
+                <Box bg={'gray.100'} w={'100%'} h={'60px'} mt={'-60px'} px={6} py={2}
+                     style={{borderBottomLeftRadius: '6px', borderBottomRightRadius: '6px'}}>
+                    <SimpleGrid spacing={0} fontSize={'sm'}>
+                        <Stack direction={'row'}>
+                            <Text fontSize={'2xl'} fontWeight={700}> 300.00 BFC</Text>
                             <Text color={'gray.500'}>{props.writtenAt}</Text>
                         </Stack>
-                        <Stack direction={'column'} spacing={1} fontSize={'sm'}>
-                            <Text fontWeight={600}>Energy: 14302</Text>
-                            <Text fontWeight={600}>Staked: $1302</Text>
-                        </Stack>
-                    </Stack>
+                    </SimpleGrid>
                 </Box>
             </Link>
         </Center>
