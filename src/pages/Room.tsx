@@ -2,17 +2,9 @@ import React from "react";
 import NavBar from "../components/NavBar";
 import {
     Avatar,
-    Box,
     Container,
-    Grid,
-    GridItem,
-    Heading,
     Spacer,
-    Stack,
-    StackDivider,
     Text,
-    useColorModeValue,
-    VStack,
 } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { COLORS } from "../utils/colors";
