@@ -1,11 +1,6 @@
 import React from "react";
 import NavBar from "../components/NavBar";
-import {
-    Avatar,
-    Container,
-    Spacer,
-    Text,
-} from "@chakra-ui/react";
+import { Avatar, Container, Spacer, Text } from "@chakra-ui/react";
 import styled from "@emotion/styled";
 import { COLORS } from "../utils/colors";
 import Row from "../components/Row";
@@ -13,6 +8,8 @@ import Column from "../components/Column";
 import SizedBox from "../components/SizedBox";
 import ImageLoader from "../components/ImageLoader";
 import Message from "../assets/icons/ic-message.png";
+import FillVote from "../assets/icons/ic-fill_vote.png";
+import Vote from "../assets/icons/ic-vote.png";
 
 type BorderBackboardProps = {
     bg: string;
@@ -316,6 +313,20 @@ function Room() {
                                             <LikeBtn
                                                 onSelected={likeAlready1}
                                                 onClick={() => handleLike(1)}>
+                                                {likeAlready1 ? (
+                                                    <ImageLoader
+                                                        w={15}
+                                                        h={17}
+                                                        src={FillVote}
+                                                    />
+                                                ) : (
+                                                    <ImageLoader
+                                                        w={15}
+                                                        h={17}
+                                                        src={Vote}
+                                                    />
+                                                )}
+                                                <SizedBox w={10} />
                                                 <Text
                                                     fontSize={"24px"}
                                                     fontWeight={700}>
@@ -424,6 +435,20 @@ function Room() {
                                             <LikeBtn
                                                 onSelected={likeAlready2}
                                                 onClick={() => handleLike(2)}>
+                                                {likeAlready2 ? (
+                                                    <ImageLoader
+                                                        w={15}
+                                                        h={17}
+                                                        src={FillVote}
+                                                    />
+                                                ) : (
+                                                    <ImageLoader
+                                                        w={15}
+                                                        h={17}
+                                                        src={Vote}
+                                                    />
+                                                )}
+                                                <SizedBox w={10} />
                                                 <Text
                                                     fontSize={"24px"}
                                                     fontWeight={700}>
@@ -532,6 +557,20 @@ function Room() {
                                             <LikeBtn
                                                 onSelected={likeAlready3}
                                                 onClick={() => handleLike(3)}>
+                                                {likeAlready3 ? (
+                                                    <ImageLoader
+                                                        w={15}
+                                                        h={17}
+                                                        src={FillVote}
+                                                    />
+                                                ) : (
+                                                    <ImageLoader
+                                                        w={15}
+                                                        h={17}
+                                                        src={Vote}
+                                                    />
+                                                )}
+                                                <SizedBox w={10} />
                                                 <Text
                                                     fontSize={"24px"}
                                                     fontWeight={700}>
@@ -643,7 +682,8 @@ function Room() {
                                         </Text>
 
                                         <SizedBox h={30} />
-                                        <BoxBorderBackboard color={COLORS.green}>
+                                        <BoxBorderBackboard
+                                            color={COLORS.green}>
                                             <Row
                                                 fullWidth={true}
                                                 aCenter={true}>
@@ -679,7 +719,8 @@ function Room() {
                                         </BoxBorderBackboard>
 
                                         <SizedBox h={16} />
-                                        <BoxBorderBackboard color={COLORS.yellow}>
+                                        <BoxBorderBackboard
+                                            color={COLORS.yellow}>
                                             <Row
                                                 fullWidth={true}
                                                 aCenter={true}>

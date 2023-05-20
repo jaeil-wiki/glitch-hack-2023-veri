@@ -13,6 +13,9 @@ import {
 import React from "react";
 import { COLORS } from "../utils/colors";
 import { useLocation } from "react-router-dom";
+import ImageLoader from "./ImageLoader";
+import UP from "../assets/icons/ic-up.png";
+import Down from "../assets/icons/ic-down.png";
 
 type RoomCardProps = {
     network: string;
@@ -130,6 +133,11 @@ export default function RoomCard(props: RoomCardProps) {
                     }}>
                     <SimpleGrid spacing={0} fontSize={"sm"}>
                         <Stack direction={"row"} alignItems={"center"}>
+                            {props.href !== "4" ? (
+                                <ImageLoader src={UP} w={12} h={17} />
+                            ) : (
+                                <ImageLoader src={Down} w={12} h={17} />
+                            )}
                             <Text fontSize={"32px"} fontWeight={700}>
                                 {" "}
                                 300.00{" "}
@@ -141,6 +149,11 @@ export default function RoomCard(props: RoomCardProps) {
 
                             <Spacer />
 
+                            {props.href !== "4" ? (
+                                <ImageLoader src={UP} w={12} h={17} />
+                            ) : (
+                                <ImageLoader src={Down} w={12} h={17} />
+                            )}
                             <Text fontSize={"32px"} fontWeight={700}>
                                 {" "}
                                 50.00{" "}
