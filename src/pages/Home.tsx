@@ -46,7 +46,7 @@ function Home() {
             <Container maxW={'10xl'} bg={useColorModeValue('gray.100', 'gray.700')} pb={1}>
                 <Box overflowX={'scroll'} pb={1}>
                     <Stack direction={'row'} pt={4} px={1}>
-                        {NETWORKS.map((n) => (<NetworkFilterButton network={n}></NetworkFilterButton>))}
+                        {NETWORKS.map((n, i) => (<NetworkFilterButton key={i} network={n}></NetworkFilterButton>))}
                     </Stack>
                 </Box>
                 <SimpleGrid columns={useBreakpointValue({base: 1, md: 2, lg: 3})} spacing={4}>

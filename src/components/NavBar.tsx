@@ -21,10 +21,6 @@ import {CloseIcon, HamburgerIcon, MoonIcon, SunIcon} from '@chakra-ui/icons';
 
 const Links = [
     {
-        title: 'Rooms',
-        href: 'rooms'
-    },
-    {
         title: 'Crowdings',
         href: 'crowdings'
     },
@@ -35,20 +31,20 @@ const Links = [
 ];
 
 const NavLink = (link: { title: string, href: string }) => {
-    return (
-        <Link
-            px={2}
-            py={1}
-            rounded={'md'}
-            _hover={{
-                textDecoration: 'none',
-                bg: useColorModeValue('gray.200', 'gray.700'),
-            }}
-            href={link.href}>
-            {link.title}
-        </Link>
-    );
-};
+        const linkBg = useColorModeValue('gray.200', 'gray.700');
+
+        return (
+            <Link
+                px={2}
+                py={1}
+                rounded={'md'}
+                _hover={{textDecoration: 'none', bg: linkBg}}
+                href={link.href}>
+                {link.title}
+            </Link>
+        );
+    }
+;
 export default function NavBar() {
     const {isOpen, onOpen, onClose} = useDisclosure();
     const {colorMode, toggleColorMode} = useColorMode();
@@ -73,8 +69,8 @@ export default function NavBar() {
                             as={'nav'}
                             spacing={4}
                             display={{base: 'none', md: 'flex'}}>
-                            {Links.map((link) => (
-                                <NavLink title={link.title} href={link.href}></NavLink>
+                            {Links.map((link, i) => (
+                                <NavLink key={i} title={link.title} href={link.href}></NavLink>
                             ))}
                         </HStack>
                     </HStack>
@@ -114,7 +110,7 @@ export default function NavBar() {
                     <Box pb={4} display={{md: 'none'}}>
                         <Stack as={'nav'} spacing={4}>
                             {Links.map((link, i) => (
-                                <NavLink title={link.title} href={link.href}></NavLink>
+                                <NavLink key={i} title={link.title} href={link.href}></NavLink>
                             ))}
                         </Stack>
                     </Box>
