@@ -14,12 +14,12 @@ export const RootRouter = createBrowserRouter([
         path: "/rooms/:roomHash",
         element: <Room/>
     },
-    {
-        path: "/crowdings",
-        element: <Crowding/>
-    },
-    {
-        path: "/dashboard",
-        element: <Dashboard/>
-    }
+    // {
+    //     path: "/crowdings",
+    //     element: <Crowding/>
+    // },
+    // {
+    //     path: "/dashboard",
+    //     element: <Dashboard/>
+    // }
 ]);

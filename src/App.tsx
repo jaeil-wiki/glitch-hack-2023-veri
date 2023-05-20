@@ -8,6 +8,13 @@ import {jsonRpcProvider} from "wagmi/providers/jsonRpc";
 import {MetaMaskConnector} from '@wagmi/connectors/metaMask'
 import {ConnectKitProvider} from "connectkit";
 import {useColorMode, useColorModeValue} from "@chakra-ui/react";
+import {createGlobalStyle} from "styled-components";
+
+const GlobalStyle = createGlobalStyle`
+    * {
+        font-family: Poppins;
+    }
+`;
 
 const {chains, provider, webSocketProvider} = configureChains(
     [localhost],
@@ -30,6 +37,7 @@ function App() {
 
     return (
         <WagmiConfig client={client}>
+            <GlobalStyle/>
             <ConnectKitProvider
                 customTheme={{
                     "--ck-connectbutton-background": connectButtonColor,
