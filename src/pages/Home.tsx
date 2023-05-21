@@ -79,7 +79,7 @@ function Home() {
             {modal && <SubscribeModal onBackClick={() => setModal(false)}/>}
             <NavBar />
             <Container
-                maxW={"1440px"}
+                maxW={"10xl"}
                 bg={useColorModeValue(COLORS.blue_2, COLORS.blue_2)}>
                 <Stack
                     textAlign={"center"}
@@ -137,32 +137,44 @@ function Home() {
                         network={"ETHEREUM"}
                         author={"Zach.XBT"}
                         writtenAt={"2022-05-13"}
-                        title={"Beeple’s tweeter Hackers!"}
+                        title={"What was the Sui private round pricing?"}
                         href="1"
+                        content={"What was the Sui private round pricing? I am digging for Sui protocol, need Weighted average of each round price...."}
+                        price={"800.00"}
+                        subscriber={"52"}
                         onClick={() => setModal(true)}
                     />
                     <RoomCard
                         network={"BIFROST"}
-                        author={"김덕상.eth"}
+                        author={"BlackCow.eth"}
                         writtenAt={"2022-05-13"}
-                        title={"Beeple’s tweeter Hackers!"}
+                        title={"Is Pepe really a community coin? Or just manipulated by Maket Making force?"}
                         href="2"
+                        content={'Is Pepe really a community coin? Or just manipulated by Maket Making force? PePe is rising 1500% in a week and dumped to half.' }
+                        price={"300.00"}
+                        subscriber={"147"}
                         onClick={() => setModal(true)}
                     />
                     <RoomCard
                         network={"KLAYTN"}
                         author={"LookOnChain"}
                         writtenAt={"2022-05-13"}
-                        title={"Beeple’s tweeter Hackers!"}
+                        title={"Abitrum and optimism truly competitor?"}
                         href="3"
+                        content={'Abitrum and optimism truly competitor? ' }
+                        price={"120.00"}
+                        subscriber={"11"}
                         onClick={() => setModal(true)}
                     />
                     <RoomCard
                         network={"ETHEREUM"}
                         author={"HitBeat"}
                         writtenAt={"2022-05-13"}
-                        title={"Beeple’s tweeter Hackers!"}
+                        title={""}
                         href="4"
+                        content={'Is it true that polygon has 5 months of runway left?' }
+                        price={"120.00"}
+                        subscriber={"31"}
                         onClick={() => setModal(true)}
                     />
                 </SimpleGrid>

@@ -25,6 +25,9 @@ type RoomCardProps = {
     onClick?: () => void;
     closed?: boolean;
     href?: string;
+    content?: string;
+    price?: string;
+    subscriber?: string;
 };
 
 const ClosedBadge = () => (
@@ -33,8 +36,7 @@ const ClosedBadge = () => (
         rounded={"sm"}
         color={useColorModeValue("gray.500", "gray.900")}
         bg={useColorModeValue("gray.100", "gray.600")}
-        p={1}
-        ml={2}>
+        p={1} ml={2}>
         closed
     </Box>
 );
@@ -46,8 +48,7 @@ export default function RoomCard(props: RoomCardProps) {
                 // href={`/rooms/${props.href ?? '#'}`}
                 style={{ textDecoration: "none" }}>
                 <Box
-                    maxW={"451px"}
-                    w={"full"}
+                    maxW={"451px"}  minH={'338.5px'} w={"full"}
                     bg={useColorModeValue("white", "gray.900")}
                     boxShadow={"1xl"}
                     rounded={"12px"}
@@ -109,11 +110,7 @@ export default function RoomCard(props: RoomCardProps) {
                             fontSize={"24px"}
                             color={"black"}
                             fontWeight={"700"}>
-                            Lorem ipsum dolor sit amet, consetetur sadipscing
-                            elitr, sed diam nonumy eirmod tempor invidunt ut
-                            labore et dolore magna aliquyam erat, sed diam
-                            voluptua. At vero eos et accusam et justo duo
-                            dolores et ea rebum.
+                            {props.content}
                         </Text>
                     </Stack>
                 </Box>
@@ -140,7 +137,7 @@ export default function RoomCard(props: RoomCardProps) {
                             )}
                             <Text fontSize={"32px"} fontWeight={700}>
                                 {" "}
-                                300.00{" "}
+                                {props.price}{" "}
                             </Text>
                             <Text fontSize={"14px"} fontWeight={400}>
                                 {" "}
@@ -156,7 +153,7 @@ export default function RoomCard(props: RoomCardProps) {
                             )}
                             <Text fontSize={"32px"} fontWeight={700}>
                                 {" "}
-                                50.00{" "}
+                                {props.subscriber}{" "}
                             </Text>
                             <Text fontSize={"14px"} fontWeight={400}>
                                 {" "}

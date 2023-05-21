@@ -58,7 +58,7 @@ export default function NavBar() {
                         display={{ md: "none" }}
                         onClick={isOpen ? onClose : onOpen}
                     />
-                    <HStack spacing={8} alignItems={"center"}>
+                    <HStack spacing={0} alignItems={"center"}>
                         <Link href={"/"} style={{ textDecoration: "none" }}>
                             <Box
                                 fontWeight={"bold"}

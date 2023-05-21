@@ -145,7 +145,7 @@ function SubscribeModal(props: any) {
                     <SizedBox h={4}/>
                     <Row fullWidth={true} aCenter={true} jCenter={true}>
                         <Text fontSize={'48px'} fontWeight={500} color={COLORS.blue_3}>
-                            00.00
+                            40.00
                         </Text>
 
                         <SizedBox w={8}/>

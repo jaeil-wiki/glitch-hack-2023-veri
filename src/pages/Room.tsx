@@ -1,8 +1,8 @@
 import React from "react";
 import NavBar from "../components/NavBar";
-import { Avatar, Container, Spacer, Text } from "@chakra-ui/react";
+import {Avatar, Box, Container, Spacer, Text, Image} from "@chakra-ui/react";
 import styled from "@emotion/styled";
-import { COLORS } from "../utils/colors";
+import {COLORS} from "../utils/colors";
 import Row from "../components/Row";
 import Column from "../components/Column";
 import SizedBox from "../components/SizedBox";
@@ -11,113 +11,112 @@ import Message from "../assets/icons/ic-message.png";
 import FillVote from "../assets/icons/ic-fill_vote.png";
 import Vote from "../assets/icons/ic-vote.png";
 
+
 type BorderBackboardProps = {
     bg: string;
     bc: string;
 };
 
 const BorderBackboard = styled.div<BorderBackboardProps>`
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
 
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 
-    background: ${(props) => props.bg};
-    border: 1px solid ${(props) => props.bc};
-    border-radius: 12px;
-    padding: 24px;
+  background: ${(props) => props.bg};
+  border: 1px solid ${(props) => props.bc};
+  border-radius: 12px;
+  padding: 24px;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 `;
 
 const ColorBar = styled.div`
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 
-    background: ${(props) => props.color};
+  background: ${(props) => props.color};
 
-    margin: 2px 10px 0px 10px;
-    border-radius: 12px;
+  margin: 2px 10px 0px 10px;
+  border-radius: 12px;
 `;
 
 const ColorBorderBackboard = styled.div<BorderBackboardProps>`
-    display: flex;
-    flex-direction: column;
-    justify-content: start;
-    align-items: start;
+  display: flex;
+  flex-direction: column;
+  justify-content: start;
+  align-items: start;
 
-    width: 100%;
-    height: 100%;
+  width: 100%;
+  height: 100%;
 
-    background: ${(props) => props.bg};
-    border-radius: 12px;
-    padding-bottom: 24px;
+  background: ${(props) => props.bg};
+  border-radius: 12px;
+  padding-bottom: 24px;
 
-    box-sizing: border-box;
+  box-sizing: border-box;
 `;
 
 const BorderBadge = styled.div`
-    display: flex;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 
-    width: max-content;
-    height: max-content;
+  width: max-content;
+  height: max-content;
 
-    padding: 4px 12px;
-    box-sizing: border-box;
+  padding: 4px 12px;
+  box-sizing: border-box;
 
-    border-radius: 12px;
-    background: ${(props) =>
-        props.color == COLORS.red ? COLORS.white : props.color};
-    border: 1px solid ${(props) => props.color};
-    color: ${(props) =>
-        props.color !== COLORS.red ? COLORS.white : props.color};
+  border-radius: 12px;
+  background: ${(props) =>
+          props.color == COLORS.red ? COLORS.white : props.color};
+  border: 1px solid ${(props) => props.color};
+  color: ${(props) =>
+          props.color !== COLORS.red ? COLORS.white : props.color};
 `;
 
 const LikeBtn = styled.div<{ onSelected: boolean }>`
-    cursor: pointer;
+  cursor: pointer;
 
-    display: flex;
-    direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  direction: row;
+  justify-content: center;
+  align-items: center;
 
-    width: 137px;
-    height: 51px;
+  width: 137px;
+  height: 51px;
 
-    border-radius: 16px;
-    border: 1px solid ${COLORS.blue_3};
-    background-color: ${(props) =>
-        props.onSelected ? COLORS.blue_3 : COLORS.white};
+  border-radius: 16px;
+  border: 1px solid ${COLORS.blue_3};
+  background-color: ${(props) => props.onSelected ? COLORS.blue_3 : COLORS.white};
+  color: ${(props) => (props.onSelected ? COLORS.white : COLORS.blue_3)};
 
-    color: ${(props) => (props.onSelected ? COLORS.white : COLORS.blue_3)};
+  transition: all 0.3s;
 
-    transition: all 0.3s;
-
-    :hover {
-        color: ${COLORS.white};
-        background-color: ${COLORS.blue_3};
-    }
+  :hover {
+    color: ${COLORS.white};
+    background-color: ${COLORS.blue_3};
+  }
 `;
 
 const BoxBorderBackboard = styled.div`
-    display: flex;
-    flex-direction: row;
-    justify-content: center;
-    align-items: center;
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 
-    width: 100%;
-    height: 82px;
+  width: 100%;
+  height: 82px;
 
-    padding: 0px 24px 0px 24px;
-    box-sizing: border-box;
+  padding: 0px 24px 0px 24px;
+  box-sizing: border-box;
 
-    background: ${COLORS.gray_f9};
-    border: 1px solid ${(props) => props.color};
+  background: ${COLORS.gray_f9};
+  border: 1px solid ${(props) => props.color};
 `;
 
 function Room() {
@@ -159,7 +158,7 @@ function Room() {
 
     return (
         <>
-            <NavBar />
+            <NavBar/>
             <Container maxW={"1440px"} py={3}>
                 <Row fullWidth={true}>
                     <SizedBox w={"70%"}>
@@ -175,7 +174,7 @@ function Room() {
                                                     Math.random() * 10000
                                                 )}?v=4`}
                                             />
-                                            <SizedBox w={12} />
+                                            <SizedBox w={12}/>
 
                                             <Text
                                                 fontSize={"16px"}
@@ -183,7 +182,7 @@ function Room() {
                                                 BlackCow
                                             </Text>
                                         </Row>
-                                        <div style={{ marginRight: "auto" }} />
+                                        <div style={{marginRight: "auto"}}/>
                                         <BorderBadge color={COLORS.red}>
                                             <Text
                                                 fontSize={"14px"}
@@ -191,7 +190,7 @@ function Room() {
                                                 Bounty 1000 BFC
                                             </Text>
                                         </BorderBadge>
-                                        <div style={{ marginRight: "auto" }} />
+                                        <div style={{marginRight: "auto"}}/>
                                         <Text
                                             color={COLORS.red}
                                             fontSize={"16px"}
@@ -199,29 +198,28 @@ function Room() {
                                             Due Date: 05/20/2023
                                         </Text>
                                     </Row>
-
-                                    <SizedBox h={14} />
+                                    <SizedBox h={14}/>
                                     <Text
                                         fontSize={"24px"}
                                         lineHeight={"34px"}
                                         fontWeight={500}>
-                                        $Klay when down to 15%, and it does not
-                                        show on the project dashboard. Is this
-                                        okay?
+                                        <Box>Is Pepe community coin? Or just manipulated by Maket Making force?</Box>
+                                        <Box>PePe is rising 1500% in a week and dumped to half.</Box>
+                                        <Box>these are frequent pattern of "brand-new" meme coin.</Box>
+                                        <Box>However let's talk about "is. ths. NORMAL." lol.</Box>
                                     </Text>
                                 </BorderBackboard>
                             </SizedBox>
                             {/* 1 */}
-                            <SizedBox h={24} />
+                            <SizedBox h={24}/>
                             <SizedBox w={"100%"} h={"max-contents"}>
                                 <ColorBorderBackboard
                                     bg={COLORS.gray_f9}
                                     bc={COLORS.blue_3}>
                                     <SizedBox w={"100%"} h={3}>
-                                        <ColorBar color={COLORS.green} />
+                                        <ColorBar color={COLORS.green}/>
                                     </SizedBox>
-
-                                    <SizedBox h={24} />
+                                    <SizedBox h={24}/>
                                     <div
                                         style={{
                                             marginLeft: "24px",
@@ -236,16 +234,15 @@ function Room() {
                                                         Math.random() * 10000
                                                     )}?v=4`}
                                                 />
-                                                <SizedBox w={12} />
-
+                                                <SizedBox w={12}/>
                                                 <Text
                                                     fontSize={"16px"}
                                                     fontWeight={400}>
-                                                    Zachxbt
+                                                    Zach.XBT
                                                 </Text>
                                             </Row>
                                             <div
-                                                style={{ marginRight: "auto" }}
+                                                style={{marginRight: "auto"}}
                                             />
                                             <BorderBadge color={COLORS.green}>
                                                 <Text
@@ -255,7 +252,7 @@ function Room() {
                                                 </Text>
                                             </BorderBadge>
                                             <div
-                                                style={{ marginRight: "auto" }}
+                                                style={{marginRight: "auto"}}
                                             />
                                             <Text
                                                 color={COLORS.black}
@@ -264,37 +261,26 @@ function Room() {
                                                 05/20/2023
                                             </Text>
                                         </Row>
-
-                                        <SizedBox h={14} />
+                                        <SizedBox h={14}/>
                                         <Text
                                             fontSize={"32px"}
                                             lineHeight={"39px"}
                                             fontWeight={700}>
-                                            Things you MUST know about FTX.
+                                            Yes, It's manipulated.
                                         </Text>
 
-                                        <SizedBox h={14} />
+                                        <SizedBox h={14}/>
                                         <Text
                                             fontSize={"24px"}
                                             lineHeight={"34px"}
                                             fontWeight={500}>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetur adipiscing elit. Nullam
-                                            at eros luctus, egestas massa at,
-                                            cursus ante. Morbi maximus feugiat
-                                            justo, id viverra libero gravida eu.
-                                            Pellentesque in lacinia dolor. Morbi
-                                            nisi dolor, pretium a tincidunt et,
-                                            rutrum vitae ligula. Sed semper
-                                            maximus maximus. Aenean in dictum
-                                            libero, vitae vestibulum enim. Donec
-                                            mi massa, auctor quis eros at,
-                                            sodales tincidunt lorem. Proin
-                                            fringilla sollicitudin nibh
-                                            dignissim condimentum.
+                                            <Box>There are 50 different addresses holding over $1 Million of PEPE atm.</Box>
+                                            <Box>Some of these, such as 0x9Cd below, spent over 6 figures on their positions (in this case, almost 250K).</Box>
+                                            <Box>Others, such as 'dimethyltryptamine.eth', have been holding since their first buy, of $260.</Box>
+                                            <Image src={'/img1.png'}></Image>
                                         </Text>
 
-                                        <SizedBox h={42} />
+                                        <SizedBox h={42}/>
                                         <Row aCenter={true}>
                                             <ImageLoader
                                                 h={32}
@@ -302,14 +288,14 @@ function Room() {
                                                 src={Message}
                                             />
 
-                                            <SizedBox w={10} />
+                                            <SizedBox w={10}/>
                                             <Text
                                                 fontSize={"16px"}
                                                 fontWeight={400}>
                                                 23 comments(s)
                                             </Text>
 
-                                            <Spacer />
+                                            <Spacer/>
                                             <LikeBtn
                                                 onSelected={likeAlready1}
                                                 onClick={() => handleLike(1)}>
@@ -326,13 +312,13 @@ function Room() {
                                                         src={Vote}
                                                     />
                                                 )}
-                                                <SizedBox w={10} />
+                                                <SizedBox w={10}/>
                                                 <Text
                                                     fontSize={"24px"}
                                                     fontWeight={700}>
                                                     {likeCount1}
                                                 </Text>
-                                                <SizedBox w={5} />
+                                                <SizedBox w={5}/>
                                                 <Text
                                                     fontSize={"14px"}
                                                     fontWeight={400}>
@@ -344,16 +330,16 @@ function Room() {
                                 </ColorBorderBackboard>
                             </SizedBox>
                             {/* 2 */}
-                            <SizedBox h={24} />
+                            <SizedBox h={24}/>
                             <SizedBox w={"100%"} h={"max-contents"}>
                                 <ColorBorderBackboard
                                     bg={COLORS.gray_f9}
                                     bc={COLORS.blue_3}>
                                     <SizedBox w={"100%"} h={3}>
-                                        <ColorBar color={COLORS.yellow} />
+                                        <ColorBar color={COLORS.yellow}/>
                                     </SizedBox>
 
-                                    <SizedBox h={24} />
+                                    <SizedBox h={24}/>
                                     <div
                                         style={{
                                             marginLeft: "24px",
@@ -368,7 +354,7 @@ function Room() {
                                                         Math.random() * 10000
                                                     )}?v=4`}
                                                 />
-                                                <SizedBox w={12} />
+                                                <SizedBox w={12}/>
 
                                                 <Text
                                                     fontSize={"16px"}
@@ -377,7 +363,7 @@ function Room() {
                                                 </Text>
                                             </Row>
                                             <div
-                                                style={{ marginRight: "auto" }}
+                                                style={{marginRight: "auto"}}
                                             />
                                             <Text
                                                 color={COLORS.black}
@@ -387,36 +373,28 @@ function Room() {
                                             </Text>
                                         </Row>
 
-                                        <SizedBox h={14} />
+                                        <SizedBox h={14}/>
                                         <Text
                                             fontSize={"32px"}
                                             lineHeight={"39px"}
                                             fontWeight={700}>
-                                            Things you MUST know about FTX.
+                                            Deployer is "Abuser" definitely.
                                         </Text>
 
-                                        <SizedBox h={14} />
+                                        <SizedBox h={14}/>
                                         <Text
                                             fontSize={"24px"}
                                             lineHeight={"34px"}
                                             fontWeight={500}>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetur adipiscing elit. Nullam
-                                            at eros luctus, egestas massa at,
-                                            cursus ante. Morbi maximus feugiat
-                                            justo, id viverra libero gravida eu.
-                                            Pellentesque in lacinia dolor. Morbi
-                                            nisi dolor, pretium a tincidunt et,
-                                            rutrum vitae ligula. Sed semper
-                                            maximus maximus. Aenean in dictum
-                                            libero, vitae vestibulum enim. Donec
-                                            mi massa, auctor quis eros at,
-                                            sodales tincidunt lorem. Proin
-                                            fringilla sollicitudin nibh
-                                            dignissim condimentum.
+                                            <Box>After liquidity was added, a number of different wallets bought at varying intervals afterwards.</Box>
+                                            <Box>The first buyer was actually the PEPE deployer itself, purchasing 195B PEPE tokens for $2 of WETH.</Box>
+                                            <Box>The Deployer wallet eventually sold these tokens 1 week later, after transferring to a different account.</Box>
+                                            <Box>They received 22.94 ETH ($42.2K) from the $2 spent.</Box>
+                                            <Box>Had they held onto them, these tokens would currently be worth $200K.</Box>
+                                            <Image src={'/img2.jpeg'}></Image>
                                         </Text>
 
-                                        <SizedBox h={42} />
+                                        <SizedBox h={42}/>
                                         <Row aCenter={true}>
                                             <ImageLoader
                                                 h={32}
@@ -424,14 +402,14 @@ function Room() {
                                                 src={Message}
                                             />
 
-                                            <SizedBox w={10} />
+                                            <SizedBox w={10}/>
                                             <Text
                                                 fontSize={"16px"}
                                                 fontWeight={400}>
                                                 23 comments(s)
                                             </Text>
 
-                                            <Spacer />
+                                            <Spacer/>
                                             <LikeBtn
                                                 onSelected={likeAlready2}
                                                 onClick={() => handleLike(2)}>
@@ -448,13 +426,13 @@ function Room() {
                                                         src={Vote}
                                                     />
                                                 )}
-                                                <SizedBox w={10} />
+                                                <SizedBox w={10}/>
                                                 <Text
                                                     fontSize={"24px"}
                                                     fontWeight={700}>
                                                     {likeCount2}
                                                 </Text>
-                                                <SizedBox w={5} />
+                                                <SizedBox w={5}/>
                                                 <Text
                                                     fontSize={"14px"}
                                                     fontWeight={400}>
@@ -466,20 +444,21 @@ function Room() {
                                 </ColorBorderBackboard>
                             </SizedBox>
                             {/* 3 */}
-                            <SizedBox h={24} />
+                            <SizedBox h={24}/>
                             <SizedBox w={"100%"} h={"max-contents"}>
                                 <ColorBorderBackboard
                                     bg={COLORS.gray_f9}
                                     bc={COLORS.blue_3}>
                                     <SizedBox w={"100%"} h={3}>
-                                        <ColorBar color={COLORS.red} />
+                                        <ColorBar color={COLORS.red}/>
                                     </SizedBox>
 
-                                    <SizedBox h={24} />
+                                    <SizedBox h={24}/>
                                     <div
                                         style={{
-                                            marginLeft: "24px",
-                                            marginRight: "24px",
+                                            width: "100%",
+                                            paddingLeft: "24px",
+                                            paddingRight: "24px",
                                         }}>
                                         <Row fullWidth={true} aCenter={true}>
                                             <Row
@@ -490,7 +469,7 @@ function Room() {
                                                         Math.random() * 10000
                                                     )}?v=4`}
                                                 />
-                                                <SizedBox w={12} />
+                                                <SizedBox w={12}/>
 
                                                 <Text
                                                     fontSize={"16px"}
@@ -499,7 +478,7 @@ function Room() {
                                                 </Text>
                                             </Row>
                                             <div
-                                                style={{ marginRight: "auto" }}
+                                                style={{marginRight: "auto"}}
                                             />
                                             <Text
                                                 color={COLORS.black}
@@ -509,36 +488,25 @@ function Room() {
                                             </Text>
                                         </Row>
 
-                                        <SizedBox h={14} />
+                                        <SizedBox h={14}/>
                                         <Text
                                             fontSize={"32px"}
                                             lineHeight={"39px"}
                                             fontWeight={700}>
-                                            Things you MUST know about FTX.
+                                            Pepe is hella SCAM
                                         </Text>
 
-                                        <SizedBox h={14} />
+                                        <SizedBox h={14}/>
                                         <Text
                                             fontSize={"24px"}
                                             lineHeight={"34px"}
                                             fontWeight={500}>
-                                            Lorem ipsum dolor sit amet,
-                                            consectetur adipiscing elit. Nullam
-                                            at eros luctus, egestas massa at,
-                                            cursus ante. Morbi maximus feugiat
-                                            justo, id viverra libero gravida eu.
-                                            Pellentesque in lacinia dolor. Morbi
-                                            nisi dolor, pretium a tincidunt et,
-                                            rutrum vitae ligula. Sed semper
-                                            maximus maximus. Aenean in dictum
-                                            libero, vitae vestibulum enim. Donec
-                                            mi massa, auctor quis eros at,
-                                            sodales tincidunt lorem. Proin
-                                            fringilla sollicitudin nibh
-                                            dignissim condimentum.
+                                            <Box>PEPE has no token utility or value support mechanism.</Box>
+                                            <Box>Also, there are signs that certain insiders or team members were </Box>
+                                            <Box>able to buy 7% of the total token supply minutes after TGE.</Box>
                                         </Text>
 
-                                        <SizedBox h={42} />
+                                        <SizedBox h={42}/>
                                         <Row aCenter={true}>
                                             <ImageLoader
                                                 h={32}
@@ -546,14 +514,14 @@ function Room() {
                                                 src={Message}
                                             />
 
-                                            <SizedBox w={10} />
+                                            <SizedBox w={10}/>
                                             <Text
                                                 fontSize={"16px"}
                                                 fontWeight={400}>
                                                 23 comments(s)
                                             </Text>
 
-                                            <Spacer />
+                                            <Spacer/>
                                             <LikeBtn
                                                 onSelected={likeAlready3}
                                                 onClick={() => handleLike(3)}>
@@ -570,13 +538,13 @@ function Room() {
                                                         src={Vote}
                                                     />
                                                 )}
-                                                <SizedBox w={10} />
+                                                <SizedBox w={10}/>
                                                 <Text
                                                     fontSize={"24px"}
                                                     fontWeight={700}>
                                                     {likeCount3}
                                                 </Text>
-                                                <SizedBox w={5} />
+                                                <SizedBox w={5}/>
                                                 <Text
                                                     fontSize={"14px"}
                                                     fontWeight={400}>
@@ -590,7 +558,7 @@ function Room() {
                         </Column>
                     </SizedBox>
 
-                    <SizedBox w={21} />
+                    <SizedBox w={21}/>
                     <SizedBox w={"30%"}>
                         <Column fullWidth={true}>
                             <SizedBox w={"100%"} h={233}>
@@ -598,25 +566,23 @@ function Room() {
                                     bg={COLORS.white}
                                     bc={COLORS.gray_b5}>
                                     <Column fullWidth={true} aCenter={true}>
-                                        <SizedBox h={10} />
+                                        <SizedBox h={10}/>
                                         <Text
                                             fontSize={"16px"}
                                             fontWeight={700}
                                             lineHeight={"100%"}>
                                             Community Bounty
                                         </Text>
-
-                                        <SizedBox h={20} />
+                                        <SizedBox h={20}/>
                                         <Row aCenter={true}>
                                             <Text
                                                 fontSize={"48px"}
                                                 fontWeight={700}
                                                 lineHeight={"100%"}
                                                 color={COLORS.blue_3}>
-                                                200.00
+                                                5880.00
                                             </Text>
-
-                                            <SizedBox w={8} />
+                                            <SizedBox w={8}/>
                                             <Text
                                                 fontSize={"18px"}
                                                 fontWeight={400}
@@ -626,17 +592,17 @@ function Room() {
                                             </Text>
                                         </Row>
 
-                                        <SizedBox h={16} />
+                                        <SizedBox h={16}/>
                                         <Row aCenter={true}>
                                             <Text
                                                 fontSize={"48px"}
                                                 fontWeight={700}
                                                 lineHeight={"100%"}
                                                 color={COLORS.blue_3}>
-                                                50
+                                                147
                                             </Text>
 
-                                            <SizedBox w={8} />
+                                            <SizedBox w={8}/>
                                             <Text
                                                 fontSize={"18px"}
                                                 fontWeight={400}
@@ -649,13 +615,13 @@ function Room() {
                                 </BorderBackboard>
                             </SizedBox>
 
-                            <SizedBox h={24} />
+                            <SizedBox h={24}/>
                             <SizedBox w={"100%"} h={"max-contents"}>
                                 <BorderBackboard
                                     bg={COLORS.white}
                                     bc={COLORS.gray_b5}>
                                     <Column fullWidth={true} aCenter={true}>
-                                        <SizedBox h={2} />
+                                        <SizedBox h={2}/>
                                         <Text
                                             fontSize={"16px"}
                                             fontWeight={700}
@@ -663,25 +629,25 @@ function Room() {
                                             Community Bounty Voting Status
                                         </Text>
 
-                                        <SizedBox h={15} />
+                                        <SizedBox h={15}/>
                                         <Text
                                             fontSize={"48px"}
                                             fontWeight={700}
                                             lineHeight={"100%"}
                                             color={COLORS.blue_3}>
-                                            200
+                                            132
                                         </Text>
 
-                                        <SizedBox h={15} />
+                                        <SizedBox h={15}/>
                                         <Text
                                             fontSize={"18px"}
                                             fontWeight={400}
                                             lineHeight={"100%"}
                                             color={COLORS.black}>
-                                            SUBSCRIBERS
+                                            Total Number of Votes
                                         </Text>
 
-                                        <SizedBox h={30} />
+                                        <SizedBox h={30}/>
                                         <BoxBorderBackboard
                                             color={COLORS.green}>
                                             <Row
@@ -692,23 +658,22 @@ function Room() {
                                                         Math.random() * 10000
                                                     )}?v=4`}
                                                 />
-                                                <SizedBox w={12} />
+                                                <SizedBox w={12}/>
 
                                                 <Text
                                                     fontSize={"16px"}
                                                     fontWeight={400}>
                                                     BlackCow
                                                 </Text>
-
-                                                <Spacer />
+                                                <Spacer/>
                                                 <Text
                                                     fontSize={"24px"}
                                                     fontWeight={700}
                                                     color={COLORS.blue_3}>
-                                                    50
+                                                    57
                                                 </Text>
 
-                                                <SizedBox w={5} />
+                                                <SizedBox w={5}/>
                                                 <Text
                                                     fontSize={"16px"}
                                                     fontWeight={400}
@@ -718,7 +683,7 @@ function Room() {
                                             </Row>
                                         </BoxBorderBackboard>
 
-                                        <SizedBox h={16} />
+                                        <SizedBox h={16}/>
                                         <BoxBorderBackboard
                                             color={COLORS.yellow}>
                                             <Row
@@ -729,23 +694,23 @@ function Room() {
                                                         Math.random() * 10000
                                                     )}?v=4`}
                                                 />
-                                                <SizedBox w={12} />
+                                                <SizedBox w={12}/>
 
                                                 <Text
                                                     fontSize={"16px"}
                                                     fontWeight={400}>
-                                                    BlackCow
+                                                    Aurora
                                                 </Text>
 
-                                                <Spacer />
+                                                <Spacer/>
                                                 <Text
                                                     fontSize={"24px"}
                                                     fontWeight={700}
                                                     color={COLORS.blue_3}>
-                                                    50
+                                                    43
                                                 </Text>
 
-                                                <SizedBox w={5} />
+                                                <SizedBox w={5}/>
                                                 <Text
                                                     fontSize={"16px"}
                                                     fontWeight={400}
@@ -755,7 +720,7 @@ function Room() {
                                             </Row>
                                         </BoxBorderBackboard>
 
-                                        <SizedBox h={16} />
+                                        <SizedBox h={16}/>
                                         <BoxBorderBackboard color={COLORS.red}>
                                             <Row
                                                 fullWidth={true}
@@ -765,23 +730,23 @@ function Room() {
                                                         Math.random() * 10000
                                                     )}?v=4`}
                                                 />
-                                                <SizedBox w={12} />
+                                                <SizedBox w={12}/>
 
                                                 <Text
                                                     fontSize={"16px"}
                                                     fontWeight={400}>
-                                                    BlackCow
+                                                    InvTaLive
                                                 </Text>
 
-                                                <Spacer />
+                                                <Spacer/>
                                                 <Text
                                                     fontSize={"24px"}
                                                     fontWeight={700}
                                                     color={COLORS.blue_3}>
-                                                    50
+                                                    32
                                                 </Text>
 
-                                                <SizedBox w={5} />
+                                                <SizedBox w={5}/>
                                                 <Text
                                                     fontSize={"16px"}
                                                     fontWeight={400}
